@@ -31,14 +31,14 @@ def column_associations(df):
     To compute the Cramer's V statistic, all columns are discretized. Numeric
     columns are binned with 10 bins. For categorical columns, only the 10 most
     frequent categories are considered. In both cases, nulls are treated as a
-    separate category, ie a separate row in the contingency table. Thus
+    separate category, ie a separate row in the contingency table. Thus,
     associations between the values of 2 columns or between their missingness
     patterns may be captured.
 
     To compute the Pearson's Correlation Coefficient, only numeric columns are
     considered. The correlation is computed using the Pearson method used in
-    pandas or polars, depending on the dataframe. In both case, lines containing NaNs
-    are dropped
+    pandas or polars, depending on the dataframe. In both cases, lines containing NaNs
+    are dropped.
 
     Parameters
     ----------
@@ -61,9 +61,10 @@ def column_associations(df):
     between two variables, giving a value between -1 and +1 (inclusive).
 
     * `Pearson's Correlation Coefficient
-    <https://en.wikipedia.org/wiki/Pearson_correlation_coefficient>`_
+      <https://en.wikipedia.org/wiki/Pearson_correlation_coefficient>`_
+
     * `pandas.DataFrame.corr
-    <https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.corr.html>`_
+      <https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.corr.html>`_
 
     Examples
     --------

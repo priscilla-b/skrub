@@ -12,10 +12,62 @@ Ongoing development
 New features
 ------------
 
+The skrub expressions are new mechanism for building machine-learning pipelines
+that handle multiple tables and easily describing their hyperparameter spaces.
+See :ref:`the examples <expressions_examples_ref>` for an introduction.
+:pr:`1233` by :user:`Jérôme Dockès <jeromedockes>`. A lot of work from other
+contributors is not directly visible on the pull request page: :user:`Vincent
+Maladiere <Vincent-Maladiere>` provided very important help by trying the
+expressions on many use-cases and datasets, providing feedback and suggesting
+improvements, improving the examples (including creating all the figures in the
+examples) and adding jitter to the parallel coordinate plots, :user:`Riccardo
+Cappuzzo<rcap107>` experimented with the expressions, suggested improvements and
+improved the examples, :user:`Gaël Varoquaux <gaelvaroquaux>` , :user:`Guillaume
+Lemaitre <glemaitre>`, :user:`Adrin Jalali <adrinjalali>`, :user:`Olivier Grisel
+<ogrisel>` and others participated through many discussions in defining the
+requirements and the public API.
+
+Changes
+-------
+
+- A new parameter ``max_association_columns`` has been added to the
+  :class:`TableReport` to skip association computation when the number of columns
+  exceeds the specified value. :pr:`1304` by :user:`Victoria Shevchenko <victoris93>`.
+
+- The `packaging` dependency was removed.
+  :pr:`1307` by :user:`Jovan Stojanovic <jovan-stojanovic>`
+
+
+Bugfixes
+--------
+
+
+Release 0.5.3
+=============
+
+Changes
+-------
+
+- The :class:`SimpleCleaner` has been renamed to :class:`Cleaner`. Use of the
+  name :class:`SimpleCleaner` is deprecated and will result in an error in some
+  future release of skrub. :pr:`1275` by :user:`Riccardo Cappuzzo<rcap107>`.
+
+- A new parameter ``max_plot_columns`` has been added to the
+  :class:`TableReport` and :func:`patch_display` to skip column plots when the
+  number of columns exceeds the specified value. :pr:`1255` by :user:`Priscilla
+  Baah<priscilla-b>`.
+
+
+Release 0.5.2
+=============
+
+New features
+------------
+
 - The :class:`TableReport` now switches its visual theme between light and dark according to the user preferences.
   :pr:`1201` by :user:`rouk1 <rouk1>`.
 
-- Adding a new way to control the location of the data directory, using envar `SKRUB_DATA_DIRECTORY`.
+- Adding a new way to control the location of the data directory, using envar ``SKRUB_DATA_DIRECTORY``.
   :pr:`1215` by :user:`Thomas S. <thomass-dev>`
 
 - The :class:`DatetimeEncoder` now supports periodic encoding of datetime features
@@ -26,9 +78,11 @@ New features
   :pr:`1203` by :user:`Reshama Shaikh <reshamas>` and
   :user:`Vincent Maladiere <Vincent-Maladiere>`.
 
-- The :class:`SimpleCleaner` is now available. This transformer is a lightweight pre-processor that
-  applies some of the transformations applied by the :class:`TableVectorizer`, with a simpler
-  interface. :pr:`1266` by :user:`Riccardo Cappuzzo<rcap107>` and :user:`Jerome Dockes <jeromedockes>` .
+- The :class:`SimpleCleaner` is now available (⚠️ it was renamed to
+  :class:`Cleaner` in skrub ``0.5.3``.). This transformer is a lightweight
+  pre-processor that applies some of the transformations applied by the
+  :class:`TableVectorizer`, with a simpler interface. :pr:`1266` by
+  :user:`Riccardo Cappuzzo<rcap107>` and :user:`Jerome Dockes <jeromedockes>` .
 
 Changes
 -------
